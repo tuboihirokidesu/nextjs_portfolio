@@ -4,7 +4,7 @@ const projectCardData: ICardData[] = [
   {
     id: '0',
     src:
-      'https://images.unsplash.com/photo-1608111283390-2e333b9b279c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+      'https://images.unsplash.com/photo-1521295121783-8a321d551ad2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
     text: 'World Rank',
     label: 'React Hooks',
     path: './project/world-ranks'
