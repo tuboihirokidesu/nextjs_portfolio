@@ -1,0 +1,132 @@
+.container {
+  padding: 24px;
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.overview {
+  &_panel {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    background-color: var(--background-color-light);
+
+    > img {
+      width: 100%;
+      border-radius: 4px;
+    }
+  }
+  &_wrap {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &_name {
+    font-size: 32px;
+    margin-bottom: 0;
+  }
+  &_subtitle {
+    font-size: 16px;
+    color: #617482;
+  }
+
+  &_region {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 4px;
+    margin-bottom: 24px;
+  }
+
+  &_numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+
+  &_label {
+    font-size: 14px;
+  }
+}
+
+.details_panel {
+  background-color: var(--background-color-light);
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+
+  &_heading {
+    padding: 20px;
+    padding-bottom: 0;
+
+    margin: 0;
+  }
+
+  &_row {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #617482;
+  }
+
+  &_label {
+    color: var(--text-color-secondary);
+  }
+
+  &_borders {
+    padding: 20px;
+
+    &_container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 24px;
+    }
+    &_subtitle {
+      font-size: 8px;
+      color: #617482;
+    }
+  }
+}
+
+.details_panel_borders img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.details_panel_borders_country {
+  text-align: center;
+}
+
+.details_panel_borders_label {
+  color: var(--text-color-secondary);
+  margin-bottom: 20px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+}
+
+@media screen and (min-width: 720px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+
+  .container {
+    &_left {
+      grid-column: 1 / span 4;
+    }
+    &_right {
+      grid-column: 5 / span 8;
+    }
+  }
+}

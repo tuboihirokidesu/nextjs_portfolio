@@ -29,7 +29,7 @@ const articleCardData: ICardData[] = [
     src:
       'https://images.unsplash.com/photo-1612831197872-e4e4ca7f623f?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
     text: 'サインアップフォーム作成',
-    label: 'React Hook Form & yup',
+    label: 'React Hook Form',
     path: 'https://zenn.dev/tsuboi/articles/fe48c2469f822b'
   }
 ]

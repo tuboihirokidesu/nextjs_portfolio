@@ -1,10 +1,11 @@
+import React from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 
-export const CardsItem = styled.div`
+const CardsItem = styled.li`
   display: flex;
-  justify-content: center;
   flex: 1;
-  width: 400px;
+  width: 350px;
   height: 300px;
   margin: 0 1rem;
   border-radius: 10px;
@@ -13,8 +14,7 @@ export const CardsItem = styled.div`
     margin-bottom: 2rem;
   }
 `
-
-export const CardsItemLink = styled.a`
+const CardsItemLink = styled.a`
   display: flex;
   flex-flow: column;
   width: 100%;
@@ -23,8 +23,7 @@ export const CardsItemLink = styled.a`
   overflow: hidden;
   text-decoration: none;
 `
-
-export const CardsPicWrap = styled.figure`
+const CardsPicWrap = styled.figure`
   position: relative;
   width: 100%;
   padding-top: 67%;
@@ -44,8 +43,7 @@ export const CardsPicWrap = styled.figure`
     box-sizing: border-box;
   }
 `
-
-export const CardsImage = styled.img`
+const CardsImage = styled.img`
   position: absolute;
   top: 0;
   right: 0;
@@ -63,15 +61,37 @@ export const CardsImage = styled.img`
     transform: scale(1.1);
   }
 `
-
-export const CardsItemInfo = styled.div`
-  padding: 30px 30px 30px;
+const CardsItemInfo = styled.div`
+  padding: 20px 30px 30px;
 `
-
-export const CardsItemText = styled.h5`
-  color: ${props => props.theme.colors.background};
+const CardsItemText = styled.h5`
+  color: #fff;
   font-size: 18px;
   line-height: 24px;
   display: flex;
   justify-content: center;
 `
+
+type Props = {
+  src: string
+  text: string
+  label: string
+  path: string
+}
+
+const CardItem: React.FC<Props> = ({ src, text, label, path }) => (
+  <CardsItem>
+    <Link href={path}>
+      <CardsItemLink>
+        <CardsPicWrap data-category={label}>
+          <CardsImage src={src} />
+        </CardsPicWrap>
+        <CardsItemInfo>
+          <CardsItemText>{text}</CardsItemText>
+        </CardsItemInfo>
+      </CardsItemLink>
+    </Link>
+  </CardsItem>
+)
+
+export default CardItem
