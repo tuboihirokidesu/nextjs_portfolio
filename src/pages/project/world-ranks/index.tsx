@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Layout from '../../../components/Layout'
-import Link from 'next/link'
 import styled from 'styled-components'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import axios from 'axios'
