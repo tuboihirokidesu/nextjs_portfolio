@@ -35,7 +35,7 @@ export const MenuIcon = styled(FontAwesomeIcon)`
   font-size: 2rem;
   color: #fff;
 `
-export const NavMenu = styled.ul<{ click: boolean }>`
+export const NavMenuContainer = styled.ul<{ click: boolean }>`
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
@@ -61,6 +61,18 @@ export const NavMenu = styled.ul<{ click: boolean }>`
   }
 `
 
+export const NavMenuWrap = styled.li`
+  &.active {
+    background-color: #fa923f;
+    border-radius: 2px;
+  }
+  @media screen and (max-width: 960px) {
+    &.active {
+      width: 50%;
+    }
+  }
+`
+
 export const NavMenuLinks = styled.a`
   &.nav-links {
     color: #fff;
@@ -70,15 +82,13 @@ export const NavMenuLinks = styled.a`
     align-items: center;
     padding: 0.5rem 1rem;
   }
-  &.active {
-    color: #fa923f;
-  }
   :hover {
-    border-bottom: 4px solid #fff;
+    border-bottom: 2px solid #fff;
     transition: all 0.2s ease-out;
   }
   @media screen and (max-width: 960px) {
     &.nav-links {
+      justify-content: center;
       text-align: center;
       font-size: 2rem;
       height: 150px;

@@ -5,19 +5,22 @@ import {
   MenuIcon,
   Nav,
   NavMenuLinks,
-  NavMenu,
-  NavBtn
+  NavBtn,
+  NavMenuContainer,
+  NavMenuWrap
 } from '../../styles/pages/Layout/Navbar'
 import { faChevronRight, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { NavMenuData } from '../../data/navMenuData'
 import Button from '../../styles/pages/Button'
+import { useRouter } from 'next/router'
 
 const Navbar: React.FC = () => {
   const [click, setClick] = useState(false)
   const [scroll, setScroll] = useState(false)
 
-  const closeMobileMenu = () => setClick(false)
+  const router = useRouter()
 
+  const closeMobileMenu = () => setClick(false)
   const changeBackground = () => {
     if (window.scrollY >= 80) {
       setScroll(true)
@@ -25,6 +28,7 @@ const Navbar: React.FC = () => {
       setScroll(false)
     }
   }
+  const handleClick = () => setClick(!click)
 
   useEffect(() => {
     window.addEventListener('scroll', changeBackground)
@@ -32,8 +36,6 @@ const Navbar: React.FC = () => {
       window.removeEventListener('scroll', changeBackground)
     }
   }, [])
-
-  const handleClick = () => setClick(!click)
   return (
     <Nav
       className={scroll ? 'scroll-bg-change' : 'click-bg-change'}
@@ -43,15 +45,37 @@ const Navbar: React.FC = () => {
       <IconWrap onClick={handleClick}>
         <MenuIcon icon={click ? faTimes : faChevronRight} />
       </IconWrap>
-      <NavMenu click={click}>
-        {NavMenuData.map(item => (
-          <Link key={item.id} href={item.href} passHref>
+      <NavMenuContainer click={click}>
+        <NavMenuWrap className={router.pathname === '/' ? 'active' : ''}>
+          <Link href="/" passHref>
             <NavMenuLinks className="nav-links" onClick={closeMobileMenu}>
-              {item.title}
+              Home
             </NavMenuLinks>
           </Link>
-        ))}
-      </NavMenu>
+        </NavMenuWrap>
+        <NavMenuWrap className={router.pathname === '/article' ? 'active' : ''}>
+          <Link href="/article" passHref>
+            <NavMenuLinks className="nav-links" onClick={closeMobileMenu}>
+              Article
+            </NavMenuLinks>
+          </Link>
+        </NavMenuWrap>
+        <NavMenuWrap className={router.pathname === '/project' ? 'active' : ''}>
+          <Link href="/project" passHref>
+            <NavMenuLinks className="nav-links" onClick={closeMobileMenu}>
+              Project
+            </NavMenuLinks>
+          </Link>
+        </NavMenuWrap>
+
+        {/* {NavMenuData.map(item => (
+          <div
+            key={item.id}
+            className={router.pathname = {item.href} ? 'active' : ''}
+          >
+          </div>
+        ))} */}
+      </NavMenuContainer>
       <NavBtn>
         <Button
           target="_blank"
