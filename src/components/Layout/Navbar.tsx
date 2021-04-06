@@ -6,11 +6,9 @@ import {
   Nav,
   NavMenuLinks,
   NavBtn,
-  NavMenuContainer,
-  NavMenuWrap
+  NavMenuContainer
 } from '../../styles/pages/Layout/Navbar'
 import { faChevronRight, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { NavMenuData } from '../../data/navMenuData'
 import Button from '../../styles/pages/Button'
 import { useRouter } from 'next/router'
 
@@ -46,27 +44,30 @@ const Navbar: React.FC = () => {
         <MenuIcon icon={click ? faTimes : faChevronRight} />
       </IconWrap>
       <NavMenuContainer click={click}>
-        <NavMenuWrap className={router.pathname === '/' ? 'active' : ''}>
-          <Link href="/" passHref>
-            <NavMenuLinks className="nav-links" onClick={closeMobileMenu}>
-              Home
-            </NavMenuLinks>
-          </Link>
-        </NavMenuWrap>
-        <NavMenuWrap className={router.pathname === '/article' ? 'active' : ''}>
-          <Link href="/article" passHref>
-            <NavMenuLinks className="nav-links" onClick={closeMobileMenu}>
-              Article
-            </NavMenuLinks>
-          </Link>
-        </NavMenuWrap>
-        <NavMenuWrap className={router.pathname === '/project' ? 'active' : ''}>
-          <Link href="/project" passHref>
-            <NavMenuLinks className="nav-links" onClick={closeMobileMenu}>
-              Project
-            </NavMenuLinks>
-          </Link>
-        </NavMenuWrap>
+        <Link href="/" passHref>
+          <NavMenuLinks
+            className={router.pathname === '/' ? 'active' : ''}
+            onClick={closeMobileMenu}
+          >
+            Home
+          </NavMenuLinks>
+        </Link>
+        <Link href="/article" passHref>
+          <NavMenuLinks
+            className={router.pathname === '/article' ? 'active' : ''}
+            onClick={closeMobileMenu}
+          >
+            Article
+          </NavMenuLinks>
+        </Link>
+        <Link href="/project" passHref>
+          <NavMenuLinks
+            className={router.pathname === '/project' ? 'active' : ''}
+            onClick={closeMobileMenu}
+          >
+            Project
+          </NavMenuLinks>
+        </Link>
 
         {/* {NavMenuData.map(item => (
           <div

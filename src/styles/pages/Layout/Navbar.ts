@@ -61,39 +61,30 @@ export const NavMenuContainer = styled.ul<{ click: boolean }>`
   }
 `
 
-export const NavMenuWrap = styled.li`
+export const NavMenuLinks = styled.a`
+  color: #fff;
+  display: flex;
+  justify-self: center;
+  text-decoration: none;
+  align-items: center;
+  padding: 0.5rem 1rem;
+
   &.active {
-    background-color: #fa923f;
+    color: #fa923f;
+    font-weight: 600;
     border-radius: 2px;
   }
-  @media screen and (max-width: 960px) {
-    &.active {
-      width: 50%;
-    }
-  }
-`
 
-export const NavMenuLinks = styled.a`
-  &.nav-links {
-    color: #fff;
-    display: flex;
-    justify-self: center;
-    text-decoration: none;
-    align-items: center;
-    padding: 0.5rem 1rem;
-  }
   :hover {
     border-bottom: 2px solid #fff;
     transition: all 0.2s ease-out;
   }
   @media screen and (max-width: 960px) {
-    &.nav-links {
-      justify-content: center;
-      text-align: center;
-      font-size: 2rem;
-      height: 150px;
-      z-index: 1;
-    }
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem;
+    height: 150px;
+    z-index: 1;
   }
 `
 export const NavBtn = styled.div`
