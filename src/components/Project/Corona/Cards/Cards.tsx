@@ -26,20 +26,20 @@ const Cards: React.FC<GetStaticProp> = ({ data }) => {
             className={styles.infected}
             cardTitle="Infected"
             value={item.cases}
-            name={item.name_ja}
+            name={prefecturesDistinction(item.name_ja)}
             cardSubtitle={infectedNumber(item.population, item.cases)}
           />
           <CardComponent
             className={styles.pcr}
             cardTitle="PCR"
             value={item.pcr}
-            name={item.name_ja}
+            name={prefecturesDistinction(item.name_ja)}
             cardSubtitle={infectedNumber(item.population, item.pcr)}
           />
           <CardComponent
             className={styles.deaths}
             cardTitle="Deaths"
-            name={item.name_ja}
+            name={prefecturesDistinction(item.name_ja)}
             value={item.deaths}
             cardSubtitle={infectedNumber(item.population, item.deaths)}
           />
