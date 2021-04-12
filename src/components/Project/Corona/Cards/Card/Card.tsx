@@ -6,14 +6,14 @@ import cx from 'classnames'
 import styles from './Card.module.scss'
 import styled from 'styled-components'
 
-const CardComponent = ({ className, cardTitle, value, cardSubtitle }) => {
+const CardComponent = ({ className, cardTitle, value, cardSubtitle, name }) => {
   const getDate8 = () => {
     const d = new Date()
     const z = (i: number, p: number) => ('0000' + i).slice(-p)
     return [
       z(d.getFullYear(), 4),
       z(d.getMonth() + 1, 2),
-      z(d.getDate(), 2)
+      z(d.getDate() - 1, 2)
     ].join('/')
   }
 
@@ -37,7 +37,7 @@ const CardComponent = ({ className, cardTitle, value, cardSubtitle }) => {
         </Wrap>
         <Typography color="textSecondary">更新 : {getDate8()}</Typography>
         <Typography variant="body2" component="p">
-          {cardSubtitle}
+          {name}の総人口に対し{cardSubtitle}%
         </Typography>
       </CardContent>
     </Grid>

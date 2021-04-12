@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Cards, Charts, Picker } from '../../../components/Project/Corona/index'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import axios from 'axios'
@@ -30,6 +30,10 @@ export type GetStaticProp = InferGetStaticPropsType<typeof getStaticProps>
 const index: React.FC<GetStaticProp> = ({ data, nameData }) => {
   const [stateData, setStateData] = useState([])
   // const [stateData1, setStateData1] = useState([])
+
+  useEffect(() => {
+    console.log(data)
+  }, [])
 
   const handlePrefectureChange = async (prefecture: string) => {
     // eslint-disable-next-line camelcase
