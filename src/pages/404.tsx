@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { NextPage } from 'next'
+import styled from 'styled-components'
 
 const NotFound: NextPage = () => {
   const router = useRouter()
@@ -13,29 +14,30 @@ const NotFound: NextPage = () => {
   }, [])
 
   return (
-    <div className="not-found">
+    <NotFoundContainer>
       <h1>404</h1>
       <h2>Oops! That page cannot be found :(</h2>
       <p>
-        Redirecting to{' '}
+        Redirecting to
         <Link href="/">
           <a>Homepage</a>
-        </Link>{' '}
+        </Link>
         for more marmite goodness...
       </p>
 
       <style jsx>{`
-        .not-found {
-          background: #fff;
-          padding: 30px;
-          box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-          transform: rotateZ(-1deg);
-        }
         h1 {
           font-size: 3em;
         }
       `}</style>
-    </div>
+    </NotFoundContainer>
   )
 }
 export default NotFound
+
+const NotFoundContainer = styled.div`
+  background: #fff;
+  padding: 30px;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+  transform: rotateZ(-1deg);
+`
