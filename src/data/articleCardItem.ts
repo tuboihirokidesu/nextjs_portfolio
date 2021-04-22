@@ -21,7 +21,7 @@ const articleCardData: ICardData[] = [
     src:
       'https://images.unsplash.com/photo-1612831197872-e4e4ca7f623f?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
     text: 'Rest API vol.2',
-    label: 'Node.js & MongoDB',
+    label: 'Next.js & MongoDB',
     path: 'https://zenn.dev/tsuboi/articles/fe48c2469f822b'
   },
   {
@@ -31,6 +31,14 @@ const articleCardData: ICardData[] = [
     text: 'サインアップフォーム作成',
     label: 'React Hook Form',
     path: 'https://zenn.dev/tsuboi/articles/fe48c2469f822b'
+  },
+  {
+    id: '4',
+    src:
+      'https://images.unsplash.com/photo-1612831197872-e4e4ca7f623f?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    text: '簡易ブログ作成',
+    label: 'Next.js & contentful',
+    path: 'https://zenn.dev/tsuboi/articles/99458811a003c7'
   }
 ]
 
