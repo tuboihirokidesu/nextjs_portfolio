@@ -20,18 +20,10 @@ const projectCardData: ICardData[] = [
   {
     id: '2',
     src:
-      'https://images.unsplash.com/photo-1557821552-17105176677c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80',
-    text: 'ショッピングカート',
+      'https://images.unsplash.com/photo-1584824486509-112e4181ff6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    text: '404ページ',
     label: 'JavaScript',
-    path: './project/shopping-cart'
-  },
-  {
-    id: '3',
-    src:
-      'https://images.unsplash.com/photo-1609266378844-4a8af6d72fab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
-    text: 'Appleカレンダー',
-    label: 'moment.js',
-    path: './project/calender'
+    path: './project/404'
   }
 ]
 
