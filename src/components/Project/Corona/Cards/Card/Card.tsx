@@ -5,8 +5,23 @@ import cx from 'classnames'
 
 import styles from './Card.module.scss'
 import styled from 'styled-components'
+import { NextPage } from 'next'
 
-const CardComponent = ({ className, cardTitle, value, cardSubtitle, name }) => {
+type Props = {
+  cardSubtitle: number
+  cardTitle: string
+  className: string
+  name: string
+  value: number
+}
+
+const CardComponent: NextPage<Props> = ({
+  cardSubtitle,
+  cardTitle,
+  className,
+  name,
+  value
+}) => {
   const getDate8 = () => {
     const d = new Date()
     const z = (i: number, p: number) => ('0000' + i).slice(-p)

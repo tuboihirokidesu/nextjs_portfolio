@@ -2,9 +2,14 @@ import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import styles from './Cards.module.scss'
 import CardComponent from './Card/Card'
-import { GetStaticProp } from '../../../../pages/project/corona/index'
+import { CovidData } from '../../../../pages/project/corona/index'
+import { NextPage } from 'next'
 
-const Cards: React.FC<GetStaticProp> = ({ data }) => {
+type Props = {
+  data: CovidData[]
+}
+
+const Cards: NextPage<Props> = ({ data }) => {
   const prefecturesDistinction = (name: string): string => {
     if (name === '北海道') return `${name}`
     else if (name === '大阪' || name === '京都') return `${name}府`

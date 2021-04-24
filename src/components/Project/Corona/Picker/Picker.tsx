@@ -1,8 +1,14 @@
 import { FormControl, NativeSelect } from '@material-ui/core'
+import { NextPage } from 'next'
 import React from 'react'
 import styles from './Picker.module.scss'
 
-const Picker = ({ data, handleChange }) => {
+type Props = {
+  data: string[]
+  handleChange: (prefecture: string) => Promise<void>
+}
+
+const Picker: NextPage<Props> = ({ data, handleChange }) => {
   return (
     <div>
       <FormControl className={styles.formControl}>

@@ -1,11 +1,42 @@
-import React, { useEffect, useState } from 'react'
+/* eslint-disable camelcase */
+import React, { useState } from 'react'
 import { Cards, Charts, Picker } from '../../../components/Project/Corona/index'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { InferGetStaticPropsType, NextPage } from 'next'
 import axios from 'axios'
 import Layout from '../../../components/Layout'
 import styled from 'styled-components'
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get(
+
+export interface CovidData {
+  cases: number
+  deaths: number
+  discharge: number
+  hospitalize: number
+  id: number
+  last_updated: {
+    cases_date: number
+    deaths_date: number
+    discharge_date: number
+    hospitalize_date: number
+    pcr_date: number
+    severe_date: number
+    symptom_confirming_date: number
+  }
+  lat: number
+  lng: number
+  name_en: string
+  name_ja: string
+  pcr: number
+  population: number
+  severe: number
+  symptom_confirming: number
+}
+export const getStaticProps: () => Promise<{
+  props: {
+    data: CovidData[]
+    nameData: string[]
+  }
+}> = async () => {
+  const res = await axios.get<CovidData[]>(
     'https://covid19-japan-web-api.now.sh/api//v1/prefectures'
   )
   // const res1 = await axios.get(
@@ -25,20 +56,13 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export type GetStaticProp = InferGetStaticPropsType<typeof getStaticProps>
+type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const index: React.FC<GetStaticProp> = ({ data, nameData }) => {
-  const [stateData, setStateData] = useState([])
-  // const [stateData1, setStateData1] = useState([])
-
-  useEffect(() => {
-    console.log(data)
-  }, [])
+const index: NextPage<Props> = ({ data, nameData }) => {
+  const [stateData, setStateData] = useState<CovidData[]>([])
 
   const handlePrefectureChange = async (prefecture: string) => {
-    // eslint-disable-next-line camelcase
     const fetchData = await data.filter(({ name_ja }) => name_ja === prefecture)
-    // const fetchData1 = await data1.filter(({ Name }) => Name === prefecture)
     setStateData(fetchData)
   }
   return (
